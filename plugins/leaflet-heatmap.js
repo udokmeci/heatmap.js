@@ -35,7 +35,7 @@ var HeatmapOverlay = L.Layer.extend({
 
     this._resetOrigin();
 
-    map.getPanes().overlayPane.appendChild(this._el);
+    map.getPanes().tilePane.appendChild(this._el);
 
     if (!this._heatmap) {
       this._heatmap = h337.create(this.cfg);
@@ -51,7 +51,7 @@ var HeatmapOverlay = L.Layer.extend({
 
   onRemove: function (map) {
     // remove layer's DOM elements and listeners
-    map.getPanes().overlayPane.removeChild(this._el);
+    map.getPanes().tilePane.removeChild(this._el);
 
     map.off('viewreset', this._resetOrigin, this);
     map.off('dragend', this._draw, this);
